@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bureaucratize.FileStorage.Contracts" Version="1.0.5" />
+    <PackageReference Include="Flurl.Http" Version="2.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0-preview2-26406-04" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bureaucratize.Common.Core\Bureaucratize.Common.Core.csproj" />
+    <ProjectReference Include="..\Bureaucratize.ImageProcessing.Contracts\Bureaucratize.ImageProcessing.Contracts.csproj" />
+    <ProjectReference Include="..\Bureaucratize.ImageProcessing.Core\Bureaucratize.ImageProcessing.Core.csproj" />
+    <ProjectReference Include="..\Bureaucratize.Templating.Core\Bureaucratize.Templating.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.0.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

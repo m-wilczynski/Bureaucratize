@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Bureaucratize.FileStorage.Contracts</AssemblyName>
+    <RootNamespace>Bureaucratize.FileStorage.Contracts</RootNamespace>
+    <Version>1.0.5</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Bureaucratize.FileStorage.Contracts.AssemblyInfo.cs" />
+  </ItemGroup>
+
+</Project>

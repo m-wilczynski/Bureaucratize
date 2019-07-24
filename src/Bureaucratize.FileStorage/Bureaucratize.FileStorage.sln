@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bureaucratize.FileStorage.Contracts", "Bureaucratize.FileStorage.Contracts\Bureaucratize.FileStorage.Contracts.csproj", "{BF5EF0CE-7EA4-409F-ACC8-F9F292A43819}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bureaucratize.FileStorage.Infrastructure", "Bureaucratize.FileStorage.Infrastructure\Bureaucratize.FileStorage.Infrastructure.csproj", "{E06456DC-638E-4C92-846E-E3D98CFF47E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bureaucratize.FileStorage.Service", "Bureaucratize.FileStorage.Service\Bureaucratize.FileStorage.Service.csproj", "{D93F5730-D187-409F-8BDD-0CFC24C54F1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF5EF0CE-7EA4-409F-ACC8-F9F292A43819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF5EF0CE-7EA4-409F-ACC8-F9F292A43819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF5EF0CE-7EA4-409F-ACC8-F9F292A43819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF5EF0CE-7EA4-409F-ACC8-F9F292A43819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06456DC-638E-4C92-846E-E3D98CFF47E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06456DC-638E-4C92-846E-E3D98CFF47E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06456DC-638E-4C92-846E-E3D98CFF47E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06456DC-638E-4C92-846E-E3D98CFF47E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93F5730-D187-409F-8BDD-0CFC24C54F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93F5730-D187-409F-8BDD-0CFC24C54F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93F5730-D187-409F-8BDD-0CFC24C54F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93F5730-D187-409F-8BDD-0CFC24C54F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A42252D-9313-481E-99A6-936BE9E48FD1}
+	EndGlobalSection
+EndGlobal

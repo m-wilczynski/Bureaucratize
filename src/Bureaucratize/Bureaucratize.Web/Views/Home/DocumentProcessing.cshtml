@@ -1,0 +1,86 @@
+﻿@using Bureaucratize.Templating.Core.Template
+@model Bureaucratize.Web.ViewModels.DocumentProcessingViewModel
+
+@{
+    ViewBag.Title = "Przetwarzanie dokumentu";
+    Layout = "_Layout";
+}
+
+<div class="full-width-container">
+    <nav id="processing-nav" class="nav nav-justified navbar-dark">
+        <a class="nav-item"><b>Przetwarzanie dokumentu:</b> @Model.DocumentTemplate.TemplateName</a>
+        <button id="start-processing" class="btn btn-outline-success my-2 my-sm-0" type="submit">Rozpocznij przetwarzanie</button>
+    </nav>
+    <div class="row" style="margin-top: 97px;">
+        <div id="overlay"></div>
+        <div class="col-8" style="padding: 0px;">
+            <div id="filled_document">
+                @foreach (var pageArea in @Model.DocumentTemplate.DefinedPages[1].DefinedAreas)
+            {
+                var style = "width: " + pageArea.AreaDimension.Width + "px;" +
+                            "height: " + pageArea.AreaDimension.Height + "px;" +
+                            "position: absolute;" +
+                            "top: " + pageArea.AreaDimension.Top + "px;" +
+                            "left: " + pageArea.AreaDimension.Left + "px;" +
+                            "background-color: #009e0066;" +
+                            "z-index: -1;";
+
+                <div id="area-@pageArea.AreaName.Replace(" ", "")"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     style="@style"
+                     data-html="true"
+                     title="<b>@pageArea.AreaName</b><br/><span class='badge badge-primary'>@pageArea.ExpectedData.AsUserReadableString()</span><br/><em>{Nieprzetworzony}</em>">
+                </div>
+        }
+                <img style="width: 100%; height: 100%" src="~/Home/GetDocumentImage/@Model.Document.Id" />
+            </div>
+        </div>
+        <div class="col-4" style="background-color: white;">
+            <div id="document_messages"></div>
+        </div>
+
+        <div id="processing-modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Zakończono przetwarzanie</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h2>Wniosek</h2>
+                        </div>
+                        <p><strong>Typ wniosku</strong></p>
+                        <p id="inquiryType"></p>
+                        <p><strong>Imie wnioskodawcy</strong></p>
+                        <p id="name"></p>
+                        <p><strong>Nazwisko wnioskodawcy</strong></p>
+                        <p id="surname"></p>
+                        <p><strong>PESEL wnioskodawcy</strong></p>
+                        <p id="pesel"></p>
+                        <p><strong>Błędy</strong></p>
+                        <ul id="modal-errors">
+
+                        </ul>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="~/js/document-processing.js"></script>
+        <script>
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+            setupProcessing("@Model.Document.Id");
+        </script>
+
+    </div>
+</div>

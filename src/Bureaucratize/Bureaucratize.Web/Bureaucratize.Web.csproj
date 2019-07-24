@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Images\pekao_loan_input_3.jpg" />
+    <None Remove="Resources\Images\pekao_loan_template.jpg" />
+    <None Remove="web.hocon" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.hocon">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Akka.Remote" Version="1.3.5" />
+    <PackageReference Include="Bureaucratize.FileStorage.Contracts" Version="1.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\pekao_loan_input_3.jpg" />
+    <EmbeddedResource Include="Resources\Images\pekao_loan_template.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bureaucratize.Common.Core\Bureaucratize.Common.Core.csproj" />
+    <ProjectReference Include="..\Bureaucratize.ImageProcessing.Contracts\Bureaucratize.ImageProcessing.Contracts.csproj" />
+    <ProjectReference Include="..\Bureaucratize.ImageProcessing.Core\Bureaucratize.ImageProcessing.Core.csproj" />
+    <ProjectReference Include="..\Bureaucratize.ImageProcessing.Infrastructure\Bureaucratize.ImageProcessing.Infrastructure.csproj" />
+    <ProjectReference Include="..\Bureaucratize.Templating.Core\Bureaucratize.Templating.Core.csproj" />
+    <ProjectReference Include="..\Bureaucratize.Templating.Infrastructure.NetStand\Bureaucratize.Templating.Infrastructure.NetStand.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\ExampleTemplates.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExampleTemplates.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ExampleUserInputs.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExampleUserInputs.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ExampleTemplates.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExampleTemplates.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ExampleUserInputs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExampleUserInputs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

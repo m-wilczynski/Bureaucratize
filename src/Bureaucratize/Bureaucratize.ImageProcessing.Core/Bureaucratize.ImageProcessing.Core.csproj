@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{357BA2A7-A8D8-4054-8FA9-50BFFC063D38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bureaucratize.ImageProcessing.Core</RootNamespace>
+    <AssemblyName>Bureaucratize.ImageProcessing.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.8.0\lib\net46\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Imaging, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Imaging.3.8.0\lib\net46\Accord.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net46\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net46\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Statistics.3.8.0\lib\net46\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="Bureaucratize.FileStorage.Contracts, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bureaucratize.FileStorage.Contracts.1.0.5\lib\netstandard2.0\Bureaucratize.FileStorage.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Cntk.Core.Managed-2.3.1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=21fff2ec8197defe, processorArchitecture=AMD64">
+      <HintPath>..\packages\CNTK.CPUOnly.2.3.1\lib\net45\x64\Cntk.Core.Managed-2.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0-preview2-26406-04\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cleaning\BradleyLocalThresholdingCleaner.cs" />
+    <Compile Include="Cleaning\Contracts\ICroppedAreaCleaner.cs" />
+    <Compile Include="Cleaning\Contracts\ICroppedAreaScaler.cs" />
+    <Compile Include="Cleaning\Contracts\ITemplateCanvasMatcher.cs" />
+    <Compile Include="Cleaning\FlattenedCroppedArea.cs" />
+    <Compile Include="Cleaning\EmnistCroppedAreaScaler.cs" />
+    <Compile Include="Commands\AddBitmapForDocumentToProcess.cs" />
+    <Compile Include="Commands\CreateDocumentToProcess.cs" />
+    <Compile Include="Common\OrderedFlattenedBitmap.cs" />
+    <Compile Include="Cropping\Contracts\ICroppedArea.cs" />
+    <Compile Include="Cropping\Contracts\ITemplateAreasCropper.cs" />
+    <Compile Include="Cropping\CroppedArea.cs" />
+    <Compile Include="Cropping\TemplateAreasCropper.cs" />
+    <Compile Include="Extracting\Contracts\IHandwrittenInputExtractor.cs" />
+    <Compile Include="Extracting\Contracts\IRegionOfInterestExtractor.cs" />
+    <Compile Include="Extracting\ImageDifferenceHandwrittenInputExtractor.cs" />
+    <Compile Include="Extracting\RegionOfInterestExtractor.cs" />
+    <Compile Include="Document\DocumentToProcess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetDocumentToProcess.cs" />
+    <Compile Include="Recognition\Contracts\IHandwrittenChoiceRecognizer.cs" />
+    <Compile Include="Recognition\Contracts\IHandwrittenInputRecognizer.cs" />
+    <Compile Include="Recognition\DeepLearningLabelMapConfiguration.cs" />
+    <Compile Include="Recognition\DeepLearningHandwrittenInputRecognizer.cs" />
+    <Compile Include="Recognition\FindAnyInputHandwrittenChoiceRecognizer.cs" />
+    <Compile Include="Utils\BitmapExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bureaucratize.Common.Core\Bureaucratize.Common.Core.csproj">
+      <Project>{51CB893D-ACD0-4C2E-8F3A-C4E7E8FB55C8}</Project>
+      <Name>Bureaucratize.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bureaucratize.ImageProcessing.Contracts\Bureaucratize.ImageProcessing.Contracts.csproj">
+      <Project>{939b3d6f-9225-4e90-9ab6-28c15f234589}</Project>
+      <Name>Bureaucratize.ImageProcessing.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bureaucratize.Templating.Core\Bureaucratize.Templating.Core.csproj">
+      <Project>{c9336f91-d22b-46c3-8125-8f0fc3896086}</Project>
+      <Name>Bureaucratize.Templating.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IncomingMessages\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.0\build\Accord.targets'))" />
+    <Error Condition="!Exists('..\packages\CNTK.CPUOnly.2.3.1\build\net45\CNTK.CPUOnly.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CNTK.CPUOnly.2.3.1\build\net45\CNTK.CPUOnly.targets'))" />
+  </Target>
+  <Import Project="..\packages\CNTK.CPUOnly.2.3.1\build\net45\CNTK.CPUOnly.targets" Condition="Exists('..\packages\CNTK.CPUOnly.2.3.1\build\net45\CNTK.CPUOnly.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

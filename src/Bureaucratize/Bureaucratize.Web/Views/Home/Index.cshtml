@@ -1,0 +1,39 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Bureaucratize.Web.ViewModels
+@model UploadInputFromUserViewModel
+
+
+@{
+    ViewBag.Title = "Wybierz dokument do przetworzenia";
+    Layout = "_Layout";
+}
+
+<div id="index-container" class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-6">
+            <img src="~/images/pekao_loan_template_thumbnail.jpg" />
+        </div>
+        <div class="col-6">
+            <h2>Przetwarzanie wniosku kredytowego</h2>
+            
+            <a class="btn btn-default" target="_blank" asp-controller="Home" asp-action="GetReferenceImage">
+                Pobierz szablon wniosku
+            </a>
+            
+            <a class="btn btn-default" asp-controller="Home" asp-action="UseValidWorkingFile">
+                Przetwórz przykładowy, prawidłowy wniosek
+            </a>
+
+            <form style="margin-top: 15px;" method="post" enctype="multipart/form-data"
+                  asp-controller="Home" asp-action="UploadCustomUserData">
+                <div class="form-group">
+                    <input asp-for="UserUpload" type="file" class="form-control" />
+                    <span asp-validation-for="UserUpload" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Wyślij wniosek" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

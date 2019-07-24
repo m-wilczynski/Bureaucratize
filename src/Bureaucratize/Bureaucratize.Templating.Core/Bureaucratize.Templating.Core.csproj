@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C9336F91-D22B-46C3-8125-8F0FC3896086}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bureaucratize.Templating.Core</RootNamespace>
+    <AssemblyName>Bureaucratize.Templating.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bureaucratize.FileStorage.Contracts, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bureaucratize.FileStorage.Contracts.1.0.5\lib\netstandard2.0\Bureaucratize.FileStorage.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0-preview1-26216-02\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\Commands\AddTemplatePageArea.cs" />
+    <Compile Include="Infrastructure\Commands\CreatePageCanvasBasedOnBitmap.cs" />
+    <Compile Include="Infrastructure\Commands\CreateTemplateDefinition.cs" />
+    <Compile Include="Infrastructure\Commands\AddTemplateDefinitionPage.cs" />
+    <Compile Include="Infrastructure\Commands\IPersistPageCanvasDefinition.cs" />
+    <Compile Include="Infrastructure\Queries\GetPageDefinitionByIdQuery.cs" />
+    <Compile Include="Infrastructure\Queries\GetTemplateBitmapQuery.cs" />
+    <Compile Include="Infrastructure\Queries\GetTemplateDefinitionById.cs" />
+    <Compile Include="InterestPoints\Contracts\ITemplatePageArea.cs" />
+    <Compile Include="InterestPoints\TemplatePageArea.cs" />
+    <Compile Include="InterestPoints\TemplatePageAreaPart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultMessages\Details\CanvasLoadingFailure.cs" />
+    <Compile Include="ResultMessages\Details\DuplicatedPageAreaDimension.cs" />
+    <Compile Include="ResultMessages\Details\DuplicatedPageAreaPartDimension.cs" />
+    <Compile Include="ResultMessages\Details\DuplicatedPageAreaPartOrder.cs" />
+    <Compile Include="ResultMessages\Details\DuplicatedPageNumber.cs" />
+    <Compile Include="ResultMessages\Details\NonPositivePageNumber.cs" />
+    <Compile Include="ResultMessages\Details\PageAreaNotInPageDefinition.cs" />
+    <Compile Include="ResultMessages\Details\PageAreaPartNotInPageAreaDimension.cs" />
+    <Compile Include="ResultMessages\TemplateModificationResult.cs" />
+    <Compile Include="Template\Contracts\ITemplateDefinition.cs" />
+    <Compile Include="Template\Contracts\ITemplatePageDefinition.cs" />
+    <Compile Include="Template\TemplateDefinition.cs" />
+    <Compile Include="Template\TemplatePageCanvasDefinition.cs" />
+    <Compile Include="Template\TemplatePageDefinition.cs" />
+    <Compile Include="Template\TemplatePagePartGroupDefinition.cs" />
+    <Compile Include="Template\TemplatePartExpectedDataType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bureaucratize.Common.Core\Bureaucratize.Common.Core.csproj">
+      <Project>{51cb893d-acd0-4c2e-8f3a-c4e7e8fb55c8}</Project>
+      <Name>Bureaucratize.Common.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

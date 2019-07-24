@@ -1,0 +1,32 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/lib/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/bootstrap/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/fonts.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap-reboot.css" />
+</head>
+
+<body>
+
+    <nav class="nav nav-justified fixed-top navbar-dark bg-primary">
+        <a class="nav-item nav-link" asp-controller="Home" asp-action="Index"
+           style="padding: 5px 0px 7px 0px;">
+            <img src="~/images/logo.png" />
+        </a>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
