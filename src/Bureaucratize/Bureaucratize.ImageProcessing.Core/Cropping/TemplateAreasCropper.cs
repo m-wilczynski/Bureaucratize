@@ -76,7 +76,7 @@ namespace Bureaucratize.ImageProcessing.Core.Cropping
                         }
                         catch (Exception ex)
                         {
-                            ProcessingResult<ICollection<ICroppedArea>>.Failure(new UncaughtException(ex));
+                            return ProcessingResult<ICollection<ICroppedArea>>.Failure(new UncaughtException(ex));
                         }
                     }
                     return ProcessingResult<ICollection<ICroppedArea>>.Success(results);
